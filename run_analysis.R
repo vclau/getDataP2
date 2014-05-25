@@ -1,4 +1,3 @@
-setwd('~/Dropbox/Coursera - R/Getting and Cleaning Data/Course Project/UCI HAR Dataset/')
 
 #Read test files
 subjectTest = read.table("test/subject_test.txt", 
@@ -97,6 +96,6 @@ tidyD2<-dcast(meltD, Subject + Activity ~ variable, fun.aggregate=mean)
 
 
 #Save new Dataset 
-write(tidyD2, "tidyData.txt",  na="")
+write.table(tidyD2, "tidyData.txt", sep="\t")
 
 

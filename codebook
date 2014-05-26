@@ -1,0 +1,56 @@
+Process
+
+1) Read files First all Test & Train files are read and left into independent data frames Another set of data frames are made for features & activity
+
+Variables:
+subjectTest - Contains  subject_test.txt
+xTest - Contains X_test.txt
+yTest - Contains y_test.txt
+subjectTrain - Contains subject_train.txt
+xTrain contains X_train.txt
+yTrain contains y_train.txt
+features contains features.txt
+activityLabel contains activity_labels.txt
+
+2)Create Unified dataset Train & Features xTrain & xTest files are rowbinded into a new data frame Features text is then is added as column name and row binded with Train and Test files.
+
+newdb contains de xTrain data
+newdb2 contains de xTest data
+Names from features file are inserted into the newdb & newdb2 variables and rowbinded
+Variable newdb2 is removed
+
+
+3) Add Subjects & activity Subjects and activity are added into a new data frame that is column binded to the previous one.
+
+subjectData contains subjectTrain
+Name "Subject is added to both subjectData & subjectTest
+subjectData contains de rowbined data from subjectData & subjectTest
+activityData now contains yTrain
+NAme "Activity" is added to both activityData & yTest
+activityData contains de rowbinded activityData & yTest
+newdb3 is an empty data frame with 10299 rows & 2 columns, which are renamed to Subject & Activity
+
+4)Rename Activity Activity numbers are then replaced by descriptions.
+A new column filled with  "Unset" is added to activityData
+activity labels are matched to the names
+
+
+5) Subset & Mean A new data frame with a subset of all data including a Mean or Standard deviation is created. We are considering mean every variable that has mean in it, such as: mean() , FreqMean, or GravityMean A new tidy data set is created with just the mean & std columns along with activity & subject
+
+newdb3 gets added subjectData and activityData a new unified Dataset for the analysis is created:
+newdb now includes newdb3
+subsetMeans gets all the columns that include "mean" on the title 
+subsetStd gets all the columns that include "std" 
+A new dataset: tidyD is column binded with both sets. 
+tidyD is column binded to subject and activity as well as the activity label added
+
+7) Summarized Dataset We melt the data into a new data set, by subject & activity & then cast it by variable using the function mean
+
+meltD gets the melted information of tidyD by subject and activity
+tidyD2 contains de cast agreggated information of all variables mean by subject & activity
+
+
+The new file now provides the mean by subject & activity for each value
+
+8)Save new Dataset The new tidy dataset is exported into a tab delimeted txt file
+tidyD2 is printed in  "tidyData.txt"
